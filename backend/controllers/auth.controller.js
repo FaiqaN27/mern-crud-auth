@@ -42,7 +42,7 @@ export const handleSignin = async (req, res, next) => {
 
     //pass here expiry 
     res
-      .cookie('token', token, { httpOnly: true }, expiryDate)
+      .cookie('token', token, { httpOnly: true, expires: expiryDate })
       .status(200)
       .json(rest);
   }
