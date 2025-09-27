@@ -1,9 +1,10 @@
 import express from 'express';
-import { handleTestApi, handleUpdateUser } from '../controllers/user.controller.js';
+import { handleDeleteUser, handleTestApi, handleUpdateUser } from '../controllers/user.controller.js';
 import { verifyToken } from '../utils/verifyToken.js';
 const router = express.Router();
 
 router.get("/", handleTestApi);
 router.put("/update/:id", verifyToken, handleUpdateUser)
+router.delete('/delete/:id', verifyToken, handleDeleteUser)
 
 export default router;
