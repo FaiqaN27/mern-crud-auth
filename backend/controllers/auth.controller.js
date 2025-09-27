@@ -99,3 +99,7 @@ export const handleGoogleAuth = async (req, res, next) => {
     next(error);
   }
 }
+
+export const handleSignout = (req, res) => {
+  res.clearCookie('token').status(200).json('Signout Success');
+}
