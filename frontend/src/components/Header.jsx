@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux';
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
   return (
-    <div className="bg-slate-200">
+    <div className="bg-purple-800">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-5">
         <Link to="/">
-          <h1 className="font-bold text-3xl">Auth App</h1>
+          <h1 className="font-bold text-4xl font-cursive text-white">Authify</h1>
         </Link>
-        <ul className="flex gap-4 text-[18px]">
+        <ul className="flex gap-5 text-[16px] text-white font-bold">
           <Link to="/">
             <li>Home</li>
           </Link>
@@ -18,7 +18,7 @@ export default function Header() {
           </Link>
           <Link to="/profile">
             {currentUser ?
-              (<img src={currentUser.profilePicture} alt="profile" className="h-7 w-7 rounded-full object-cover" />) : (<li>Sign In</li>)}
+              (<img src={currentUser.profilePicture} alt="profile" className="h-8 w-8 rounded-full object-cover" />) : (<li>Sign In</li>)}
           </Link>
         </ul>
       </div>
