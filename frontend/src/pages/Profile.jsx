@@ -69,7 +69,7 @@ export default function Profile() {
   }
 
   return (
-    <div className='p-3 max-w-lg mx-auto'>
+    <div className='p-3 max-w-lg mx-auto mb-9'>
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleUpdate} className='flex flex-col gap-4'>
         <img className='w-24 h-24 object-cover rounded-full self-center' src={currentUser.profilePicture} />
@@ -88,8 +88,8 @@ export default function Profile() {
         <span className='text-red-700 cursor-pointer' onClick={handleSignout}>Sign Out</span>
       </div>
 
-      <p className='text-red-700 mt-5'>{error && 'Something went wrong!'}</p>
-      <p className='text-green-700 mt-5'>{updateSuccess && 'User Updated Successfully!'}</p>
+      <p className='text-red-700 my-5'>{error && 'Something went wrong!'}</p>
+      <p className='text-green-700 my-5'>{updateSuccess && 'User Updated Successfully!'}</p>
     </div>
   )
 }
