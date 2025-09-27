@@ -45,34 +45,32 @@
 
 ### 1. Clone the repository
 
-git clone https://github.com/your-username/Authify.git
-cd mern-crud-auth
+- git clone https://github.com/your-username/Authify.git
+- cd mern-crud-auth
 
 ### 2. Install dependencies
 
 **Backend:**
 
-cd backend
-npm install
+- cd backend
+- npm install
 
 **Frontend:**
 
-cd ../frontend
-npm install
+- cd ../frontend
+- npm install
 
 ### 3. Set up environment variables
 
 Create a `.env` file in the backend folder:
 
 PORT=5000
+
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_secret_key
+
 FIREBASE_API_KEY=your_firebase_api_key
-FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
-FIREBASE_PROJECT_ID=your_firebase_project_id
-FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
-FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
-FIREBASE_APP_ID=your_firebase_app_id
 
 _(You can get these values from your Firebase project settings.)_
 
@@ -109,6 +107,7 @@ mern-crud-auth/
 │ ├─ controllers/
 │ └─ server.js
 │
+|
 ├─ frontend/ # React frontend
 │ ├─ src/
 │ │ ├─ components/
@@ -116,6 +115,7 @@ mern-crud-auth/
 │ │ └─ App.jsx
 │ └─ index.css
 │
+|
 └─ README.md
 
 ---
@@ -124,12 +124,6 @@ mern-crud-auth/
 
 _(Add link if deployed)_
 e.g., `https://authify.onrender.com`
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ---
 
