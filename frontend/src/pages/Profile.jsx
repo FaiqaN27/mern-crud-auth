@@ -6,7 +6,7 @@ export default function Profile() {
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form className='flex flex-col gap-4'>
-        <img className='w-28 h-24 object-cover rounded-full self-center cursor-pointer' src={currentUser.profilePicture} />
+        <img className='w-28 h-24 object-cover rounded-full self-center' src={currentUser.profilePicture} />
 
         <input type='text' id='username' className='bg-slate-100 p-3 rounded-lg' placeholder='Username' defaultValue={currentUser.username} />
 
