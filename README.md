@@ -120,11 +120,4 @@ mern-crud-auth/
 
 ---
 
-## 🌐 Live Demo
-
-_(Add link if deployed)_
-e.g., `https://authify.onrender.com`
-
----
-
 This version highlights **Firebase + Google Sign-In**, and guides the user on **how to set it up**.
