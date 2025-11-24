@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import serverless from "serverless-http";
 import cors from "cors";
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
@@ -55,5 +54,3 @@ app.use((err, req, res, next) => {
     statusCode,
   });
 });
-
-export const handler = serverless(app);
