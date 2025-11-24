@@ -32,11 +32,11 @@ export default function Profile() {
         `${API_BASE_URL}/api/user/update/${currentUser._id}`,
         {
           method: "PUT",
+          credentials: "include",
           headers: {
             "Content-type": "application/json",
           },
           body: JSON.stringify(formData),
-          credentials: "include",
         }
       );
       const data = await res.json();
