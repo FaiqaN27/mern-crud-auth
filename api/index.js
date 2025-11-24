@@ -2,27 +2,35 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import serverless from "serverless-http";
+
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
 
 dotenv.config();
-
-mongoose
-  .connect(process.env.MONGO)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(3000, () => {
-  console.log("Server Listening on port 3000!");
+//Mongo DB connection (optimized for serverless)
+let isConnected = false;
+
+async function connectDB() {
+  if (isConnected) return;
+  try {
+    const conn = await mongoose.connect(process.env.MONGO);
+    isConnected = conn.connection.readyState;
+    console.log("MongoDB Connected");
+  } catch (err) {
+    console.log("MongoDB Error: ", err);
+  }
+}
+
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
 });
 
 app.use("/api/user", userRoutes);
@@ -37,3 +45,5 @@ app.use((err, req, res, next) => {
     statusCode,
   });
 });
+
+export const handler = serverless(app);
