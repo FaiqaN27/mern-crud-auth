@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://mern-crud-auth-steel.vercel.app",
+      "https://mern-crud-auth-lilac.vercel.app",
       "http://localhost:5173",
     ],
     credentials: true,
