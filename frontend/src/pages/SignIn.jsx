@@ -7,6 +7,7 @@ import {
   SignInSuccess,
 } from "../redux/user/userSlice";
 import OAuth from "../components/OAuth";
+import { API_BASE_URL } from "./../utils/constants";
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export default function SignIn() {
     e.preventDefault();
     dispatch(SignInStart());
     try {
-      const res = await fetch("/api/auth/signin", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/signin`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

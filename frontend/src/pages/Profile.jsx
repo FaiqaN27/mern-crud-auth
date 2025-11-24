@@ -10,6 +10,7 @@ import {
   UserSignout,
 } from "../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "./../utils/constants";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -27,13 +28,16 @@ export default function Profile() {
     e.preventDefault();
     try {
       dispatch(UpdateStart());
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `${API_BASE_URL}/api/user/update/${currentUser._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
       if (data.success === false) {
         dispatch(UpdateFailure(data));
@@ -49,9 +53,12 @@ export default function Profile() {
   const handleDeleteAccount = async () => {
     try {
       dispatch(DeleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `${API_BASE_URL}/api/user/delete/${currentUser._id}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
       if (data.success === false) {
         dispatch(DeleteUserFailure(data));
@@ -66,7 +73,7 @@ export default function Profile() {
 
   const handleSignout = async () => {
     try {
-      await fetch("/api/auth/signout");
+      await fetch(`${API_BASE_URL}/api/auth/signout`);
       dispatch(UserSignout());
     } catch (error) {
       console.log(error);

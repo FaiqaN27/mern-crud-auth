@@ -3,6 +3,7 @@ import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { SignInSuccess } from "../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "./../utils/constants";
 
 const OAuth = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const OAuth = () => {
       const result = await signInWithPopup(auth, provider);
 
       //passing data to backend
-      const res = await fetch("/api/auth/google", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/google`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
