@@ -1,7 +1,6 @@
 import express from "express";
 import {
   handleDeleteUser,
-  handleTestApi,
   handleUpdateUser,
 } from "../controllers/user.controller.js";
 import { verifyToken } from "../utils/verifyToken.js";
