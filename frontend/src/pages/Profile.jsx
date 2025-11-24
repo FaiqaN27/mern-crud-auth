@@ -36,6 +36,7 @@ export default function Profile() {
             "Content-type": "application/json",
           },
           body: JSON.stringify(formData),
+          credentials: "include",
         }
       );
       const data = await res.json();
@@ -57,6 +58,7 @@ export default function Profile() {
         `${API_BASE_URL}/api/user/delete/${currentUser._id}`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
       const data = await res.json();
@@ -73,7 +75,10 @@ export default function Profile() {
 
   const handleSignout = async () => {
     try {
-      await fetch(`${API_BASE_URL}/api/auth/signout`);
+      await fetch(`${API_BASE_URL}/api/auth/signout`, {
+        method: "GET",
+        credentials: "include",
+      });
       dispatch(UserSignout());
     } catch (error) {
       console.log(error);

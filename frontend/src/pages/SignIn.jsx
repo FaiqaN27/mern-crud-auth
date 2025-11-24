@@ -26,6 +26,7 @@ export default function SignIn() {
     try {
       const res = await fetch(`${API_BASE_URL}/api/auth/signin`, {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-type": "application/json",
         },
