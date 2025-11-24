@@ -50,9 +50,9 @@
 
 ### 2. Install dependencies
 
-**Backend:**
+**Api:**
 
-- cd backend
+- cd api
 - npm install
 
 **Frontend:**
@@ -62,7 +62,7 @@
 
 ### 3. Set up environment variables
 
-Create a `.env` file in the backend folder:
+Create a `.env` file in the api folder:
 
 PORT=5000
 
@@ -76,7 +76,7 @@ _(You can get these values from your Firebase project settings.)_
 
 ### 4. Run the app locally
 
-**Backend:**
+**Api:**
 
 npm run dev
 
@@ -101,7 +101,7 @@ Your app should now be running at `http://localhost:5173` (or Vite default port)
 
 mern-crud-auth/
 │
-├─ backend/
+├─ api/
 │ ├─ models/
 │ ├─ routes/
 │ ├─ controllers/
