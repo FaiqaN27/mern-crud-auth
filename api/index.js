@@ -3,13 +3,23 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import serverless from "serverless-http";
-
+import cors from "cors";
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
 
 dotenv.config();
 
 const app = express();
+
+app.use(
+  cors({
+    origin: [
+      "https://mern-crud-auth-steel.vercel.app",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
