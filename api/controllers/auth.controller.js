@@ -73,7 +73,12 @@ export const handleGoogleAuth = async (req, res, next) => {
 
       // storing token in cookies
       res
-        .cookie("token", token, { httpOnly: true, expires: expiryDate })
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+          expires: expiryDate,
+        })
         .status(200)
         .json(rest);
     } else {
